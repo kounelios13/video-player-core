@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "@mkcodergr/video-player-core": {
+      "projectType": "library",
+      "root": "projects/mkcodergr/video-player-core",
+      "sourceRoot": "projects/mkcodergr/video-player-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/mkcodergr/video-player-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mkcodergr/video-player-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/mkcodergr/video-player-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/mkcodergr/video-player-core/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
